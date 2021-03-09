@@ -1,7 +1,7 @@
 import paramiko
 import sys
 
-IP = 'Pikachu' #IP Address of Raspberry Pi 
+IP = 'pikachu' #IP Address of Raspberry Pi 
 username = 'pi'
 password = 'r00t'
 
@@ -25,7 +25,7 @@ def ssh_connection():
     client.load_system_host_keys()
     client.connect(IP,username=username,password=password)
     
-    execute_command('python /home/pi/paul/paul_controller.py', client)
+    execute_command('python /home/pi/paul/ds_sensors_polling.py', client)
 
 if __name__ == '__main__':
     ssh_connection()
