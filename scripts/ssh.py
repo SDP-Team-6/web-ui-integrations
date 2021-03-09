@@ -25,14 +25,8 @@ def ssh_connection():
     client = paramiko.SSHClient()
     client.load_system_host_keys()
     client.connect(IP,username=username,password=password)
-
-    local_path = "./script.py" #Copy script to control pi  
-    remote_path = "/home/pi/paul"
-
-    with SCPClient(client.get_transport(), progress4=progress4) as scp:
-        scp.put(local_path, remote_path=remote_path)
     
-    execute_command('python script.py', client)
+    execute_command('python /home/pi/paul/paul_controller.py', client)
 
 if __name__ == '__main__':
     ssh_connection()
