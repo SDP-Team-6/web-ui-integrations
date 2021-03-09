@@ -1,6 +1,5 @@
 import paramiko
 import sys
-from scp import SCPClient
 
 IP = 'Pikachu' #IP Address of Raspberry Pi 
 username = 'pi'
