@@ -29,6 +29,3 @@ def ssh_connection():
 
 if __name__ == '__main__':
     ssh_connection()
-
-
-
