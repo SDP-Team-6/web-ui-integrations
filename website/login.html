@@ -6,7 +6,7 @@
         <title>PAUL - Login</title>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet"> 
         <link href="styles/login.css" rel="stylesheet">
-    
+        <script src="js/login.js"></script>
     </head>
 
     <body>
@@ -20,8 +20,11 @@
                 <form id="login-form">
                     <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">  
                     <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+                    <input id="pass" type="checkbox" onclick="togglePassword()">
+                    <label for="pass" class="indented-checkbox-text">Show password</label> 
                 </form>
-               
+                 
+
                 <form id="login-form">
                     <input type="submit" value="      Login      " id="login-form-submit">
                 </form>

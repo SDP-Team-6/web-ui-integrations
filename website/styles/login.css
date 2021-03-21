@@ -4,7 +4,7 @@ body {
     display: grid;
     justify-items: center;
     align-items: center;
-    background-color: #3a3a3a;
+    background-color: #404c64;
 }
 
 #main-holder {
@@ -28,9 +28,19 @@ body {
 #login-form {
     align-self: flex-start;
     display: grid;
-    justify-items: center;
+    justify-items: left;
     align-items: center;
   }
+  
+LABEL.indented-checkbox-text
+{
+    margin-left: 2em;
+    display: block;
+    position: relative;
+    margin-top: -1.2em;  
+    line-height: 1.4em; 
+}
+  
   
 .login-form-field::placeholder {
     color: #3a3a3a;
@@ -53,7 +63,7 @@ body {
     border-radius: 5px;
     color: white;
     font-weight: bold;
-    background-color: #3a3a3a;
+    background-color: #2E62F4;
     cursor: pointer;
     outline: none;
   }
