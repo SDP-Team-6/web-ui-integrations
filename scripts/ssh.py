@@ -42,20 +42,25 @@ class ssh():
         sys.stdout.write(f"({p[0]}:{p[1]}) {f}\'s progress: {prog}\r")
 
     def scp_file(self,local_path,remote_path):
-        ''' Calls the SCP client to transfer a file to the Raspberry Pi, uses the progress4 function'''
+        ''' Calls the SCP client to transfer a file to the Raspberry Pi, uses the progress4 function
+            :param local_path - The directory in which we have the file
+            :param remote_path - The directory inside the Pi in which we want to SCP the file'''
 
         with SCPClient(self.client.get_transport(),progress4 = self.progress4) as scp:
             scp.put(local_path, remote_path=remote_path)
 
-    def run_auto_mode(self,runtime):
-        ''' Function to be called when user clicks on AUTO-MODE - ON and chooses the duration for which 
+    def run_auto_mode(self,runtime, state):
+        ''' Function to be called when user clicks on AUTO-MODE - ON or OFF and chooses the duration for which 
             drone is to be run. The auto-mode.py script is run using the execute_command function, passing 
-            RUNTIME/DURATION as an argument '''
+            RUNTIME/DURATION and ON or OFF as an argument 
+            :param runtime - Duration for which robot is supposed to run
+            :param state - Decides ON/OFF for auto-mode.py'''
 
-        self.execute_command(f"python /home/pi/paul/auto-mode.py {runtime}")
+        self.execute_command(f"python /home/pi/paul/auto-mode.py {runtime} {state}")
 
     def uv_on_off(self,light):
         ''' Function to be called when user clicks on UV-Mode - ON or UV-Mode - OFF
-            Runs uv.py using execute_command, passing ON or OFF as the argument'''
+            Runs uv.py using execute_command, passing ON or OFF as the argument
+            :param light - Decides ON/OFF for uv.py'''
 
         self.execute_command(f"python /home/pi/paul/uv.py {light}") 
