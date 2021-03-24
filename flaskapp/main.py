@@ -26,6 +26,7 @@ def settings():
         Minute_value = int(request.form['Minutes']) #  Same as above
         Sec_value = int(request.form['Seconds'])    #  Same as above
         ssh.uv_on_off(UV_mode_value)                #  Turn on or off UV
+        ssh.kill_auto_mode()                        #  Terminate the auto_mode
         ssh.run_auto_mode((Hour_value * 3600 + Minute_value * 60 + Sec_value), Auto_mode_value) # Make sure runtime is in seconds
     return render_template("settings.html")         
 

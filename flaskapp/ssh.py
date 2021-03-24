@@ -49,6 +49,12 @@ class ssh():
         with SCPClient(self.client.get_transport(),progress4 = self.progress4) as scp:
             scp.put(local_path, remote_path=remote_path)
 
+    def kill_auto_mode(self):
+        ''' Function to be called every time before run_auto_mode needs to be called.
+            It terminates auto-mode.py'''
+        
+        self.execute_command(f"pkill -f auto-mode.py")
+
     def run_auto_mode(self,runtime, state):
         ''' Function to be called when user clicks on AUTO-MODE - ON or OFF and chooses the duration for which 
             drone is to be run. The auto-mode.py script is run using the execute_command function, passing 
@@ -56,7 +62,8 @@ class ssh():
             :param runtime - Duration for which robot is supposed to run
             :param state - Decides ON/OFF for auto-mode.py'''
 
-        self.execute_command(f"python /home/pi/paul/auto-mode.py {runtime} {state}")
+        # '&' makes the terminal will not be occupied and can run other scripts.
+        self.execute_command(f"python /home/pi/paul/auto-mode.py {runtime} {state} &") 
 
     def uv_on_off(self,light):
         ''' Function to be called when user clicks on UV-Mode - ON or UV-Mode - OFF
