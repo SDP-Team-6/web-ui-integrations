@@ -60,9 +60,10 @@ class ssh():
             drone is to be run. The auto-mode.py script is run using the execute_command function, passing 
             RUNTIME/DURATION and ON or OFF as an argument 
             :param runtime - Duration for which robot is supposed to run
-            :param state - Decides ON/OFF for auto-mode.py'''
+            :param state - Decides ON/OFF for auto-mode.py
+            :& - Ensures that after execution of command, terminal won't be occupied'''
 
-        # '&' makes the terminal will not be occupied and can run other scripts.
+        # On executing '&' at the end the terminal will no longer be occupied and can run other scripts.
         self.execute_command(f"python /home/pi/paul/auto-mode.py {runtime} {state} &") 
 
     def uv_on_off(self,light):
