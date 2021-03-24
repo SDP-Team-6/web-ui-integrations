@@ -42,7 +42,7 @@ def create_app():
 if __name__ == "__main__":
     
     app = create_app()
-    user = User(username = "Anon69")
+    user = User(username = "AnonUser55")
     user.set_password(password = "58yvJHJSVWSUDVkNSjcbW")
     db.session.add(user)
     db.session.commit()
