@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request
-from .ssh import ssh
+import ssh
 from flask import Flask,Blueprint,render_template, url_for, request, redirect, flash
-from . import db
 from flask_login import login_user,logout_user,login_required
 from werkzeug.security import check_password_hash
 

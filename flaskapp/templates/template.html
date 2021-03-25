@@ -11,10 +11,11 @@
         <h1 class="logo">PAUL MAIN INTERFACE</h1>
         <strong><nav>
           <ul class="menu">
-            <li><a href="{{ url_for('home') }}">Home</a></li>
-            <li><a href="{{ url_for('contact') }}">Contact Support</a></li>
-            <li><a href="{{ url_for('settings') }}">Settings</a></li>
-            <li><a href="{{ url_for('login') }}">login / sign out</a></li>
+            <li><a href="{{ url_for('main.home') }}">Home</a></li>
+            <li><a href="{{ url_for('main.contact') }}">Contact Support</a></li>
+            <li><a href="{{ url_for('main.settings') }}">Settings</a></li>
+            <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+            <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
           </ul>
         </nav></strong>
       </div>
